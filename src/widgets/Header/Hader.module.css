@@ -1,0 +1,33 @@
+.header {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: var(--spacing-md);
+  text-align: center;
+  display: flex;                
+  justify-content: space-between; 
+  align-items: center;          
+}
+
+.nav {
+  display: flex;   
+  gap: 20px;       
+}
+
+.active {
+  color: rgb(232, 232, 240);
+  font-weight: bold;
+}
+
+
+.header .navLink {
+  color: black;              
+  text-decoration: none;     
+}
+
+.header .navLink:visited {
+  color: black;               
+}
+
+.header .navLink:hover {
+  color: grey;                
+}

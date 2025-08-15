@@ -1,0 +1,148 @@
+export const carsData = [
+  {
+    marca: "Toyota",
+    model: "Camry",
+    vehicleEquipment: "Комфорт",
+    stock: "Москва, Склад №1",
+    status: "В наличии",
+  },
+  {
+    marca: "Toyota",
+    model: "Camry",
+    vehicleEquipment: "Комфорт",
+    stock: "Санкт-Петербург, Склад №2",
+    status: "В пути",
+  },
+  {
+    marca: "Toyota",
+    model: "Camry",
+    vehicleEquipment: "Комфорт",
+    stock: "Москва, Склад №1",
+    status: "Зарезервирован",
+  },
+
+  {
+    marca: "BMW",
+    model: "X5",
+    vehicleEquipment: "Luxury",
+    stock: "Санкт-Петербург, Склад №2",
+    status: "Продан",
+  },
+  {
+    marca: "BMW",
+    model: "X5",
+    vehicleEquipment: "Luxury",
+    stock: "Казань, Склад №3",
+    status: "В наличии",
+  },
+  {
+    marca: "BMW",
+    model: "X5",
+    vehicleEquipment: "Luxury",
+    stock: "Новосибирск, Склад №4",
+    status: "В наличии",
+  },
+
+  {
+    marca: "Hyundai",
+    model: "Solaris",
+    vehicleEquipment: "Active",
+    stock: "Казань, Склад №3",
+    status: "В пути",
+  },
+  {
+    marca: "Hyundai",
+    model: "Solaris",
+    vehicleEquipment: "Active",
+    stock: "Казань, Склад №3",
+    status: "В наличии",
+  },
+  {
+    marca: "Hyundai",
+    model: "Solaris",
+    vehicleEquipment: "Active",
+    stock: "Москва, Склад №1",
+    status: "Продан",
+  },
+
+  {
+    marca: "Mercedes-Benz",
+    model: "E-Class",
+    vehicleEquipment: "AMG Line",
+    stock: "Москва, Склад №1",
+    status: "В наличии",
+  },
+  {
+    marca: "Mercedes-Benz",
+    model: "E-Class",
+    vehicleEquipment: "AMG Line",
+    stock: "Екатеринбург, Склад №5",
+    status: "В пути",
+  },
+
+  {
+    marca: "Kia",
+    model: "Sportage",
+    vehicleEquipment: "Prestige",
+    stock: "Новосибирск, Склад №4",
+    status: "Зарезервирован",
+  },
+  {
+    marca: "Kia",
+    model: "Sportage",
+    vehicleEquipment: "Prestige",
+    stock: "Новосибирск, Склад №4",
+    status: "В наличии",
+  },
+  {
+    marca: "Kia",
+    model: "Sportage",
+    vehicleEquipment: "Prestige",
+    stock: "Москва, Склад №1",
+    status: "В пути",
+  },
+
+  {
+    marca: "Audi",
+    model: "Q7",
+    vehicleEquipment: "Premium",
+    stock: "Екатеринбург, Склад №5",
+    status: "В наличии",
+  },
+  {
+    marca: "Audi",
+    model: "Q7",
+    vehicleEquipment: "Premium",
+    stock: "Казань, Склад №3",
+    status: "Зарезервирован",
+  },
+  {
+    marca: "Audi",
+    model: "Q7",
+    vehicleEquipment: "Premium",
+    stock: "Москва, Склад №1",
+    status: "Продан",
+  },
+
+  {
+    marca: "Toyota",
+    model: "RAV4",
+    vehicleEquipment: "Adventure",
+    stock: "Санкт-Петербург, Склад №2",
+    status: "В наличии",
+  },
+  {
+    marca: "Toyota",
+    model: "RAV4",
+    vehicleEquipment: "Adventure",
+    stock: "Москва, Склад №1",
+    status: "В пути",
+  },
+  {
+    marca: "Toyota",
+    model: "RAV4",
+    vehicleEquipment: "Adventure",
+    stock: "Казань, Склад №3",
+    status: "Зарезервирован",
+  },
+];
