@@ -7,7 +7,7 @@ export default function CarListItem({car}){
         <td>{car.model}</td>
         <td>{car.vehicleEquipment}</td>
         <td>{car.stock}</td>
-        <td>{car.status}</td>
+        <td>{car.stockStatus}</td>
       </tr>
     );
 }
