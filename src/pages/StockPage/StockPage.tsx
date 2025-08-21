@@ -1,7 +1,8 @@
-import getFileds from "../../features/filter/filter";
+import {getFileds} from "../../features/filterGetFileds/filterGetFileds";
 import CarListItem from "../../widgets/CarListItem/CarListItem";
 import { carsData } from "../../widgets/CarListItem/model/mocks/carsData";
 import { useEffect, useState } from "react";
+import ModalFilterFildes from "../../widgets/ModalFilterFildes/ModalFilterFildes";
 
 export default function StockPage() {
   const tableHeaderValues = [
@@ -11,14 +12,36 @@ export default function StockPage() {
     { keyValue: "stock", Values: "Склад" },
     { keyValue: "stockStatus", Values: "Статус" },
   ];
+
+  const [currentCarArr, setCurrentCarArr] = useState(carsData);
+
+
   const [filterFields, setFilterFields] = useState([]);
   const [open, setOpen] = useState(
     tableHeaderValues.map((value) => ({ [value.keyValue]: false }))
   );
 
+  function openCloseModal(itamValues, indexHeaderValues) {
+    setOpen((prevOpen) =>
+      prevOpen.map((nameHeadObj, indexHeadObj) => {
+        if (indexHeaderValues === indexHeadObj) {
+          return {
+            ...nameHeadObj,
+            [itamValues.keyValue]: !nameHeadObj[itamValues.keyValue],
+          };
+        }
+        return nameHeadObj;
+      })
+    );
+  }
+
+  
+
   useEffect(() => {
-    setFilterFields(getFileds(tableHeaderValues, carsData));
+    setFilterFields(getFileds(tableHeaderValues, currentCarArr));
   }, [open]);
+
+
 
 
   return (
@@ -31,36 +54,25 @@ export default function StockPage() {
               <th>
                 {itamValues.Values}
                 <button
-                  onClick={() =>
-                    setOpen(
-                      open.map((nameHeadObj, indexHeadObj) => {
-                        if (indexHeaderValues === indexHeadObj) {
-                          return {
-                            ...nameHeadObj,
-                            [itamValues.keyValue]:
-                              !nameHeadObj[itamValues.keyValue],
-                          };
-                        }
-                        return nameHeadObj;
-                      })
-                    )
-                  }
+                  onClick={() => openCloseModal(itamValues, indexHeaderValues)}
                 >
                   +
                 </button>
                 {open[indexHeaderValues][itamValues.keyValue] && (
-                  <ul>
-                    {filterFields[indexHeaderValues].map((fileldArr, index) => (
-                      <li key={index}>{fileldArr}</li>
-                    ))}
-                  </ul>
+                  <ModalFilterFildes
+                    filterFields={filterFields}
+                    indexHeaderValues={indexHeaderValues}
+                    itamValues={itamValues}
+                    openCloseModal={openCloseModal}
+                    setCurrentCarArr = {setCurrentCarArr}
+                  />
                 )}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {carsData.map((car, index) => (
+          {currentCarArr.map((car, index) => (
             <CarListItem car={car} key={index} />
           ))}
         </tbody>
