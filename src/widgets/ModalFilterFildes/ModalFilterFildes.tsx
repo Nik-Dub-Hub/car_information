@@ -8,9 +8,12 @@ export default function ModalFilterFildes({
   itamValues,
   openCloseModal,
   setCurrentCarArr,
+  carsData,
+  setFilterRun,
+  filterRun,
 }) {
   const options = filterFields[indexHeaderValues] || [];
-
+  console.log(options, "<===========================");
   const [selectItems, setSelectItems] = useState([]);
 
   function addingByCheckbox(item) {
@@ -20,7 +23,6 @@ export default function ModalFilterFildes({
         : [...prevSelectItems, item]
     );
   }
-console.log(selectItems, "<===============");
   return (
     <div
       className="modal-overlay"
@@ -32,7 +34,7 @@ console.log(selectItems, "<===============");
             <li key={index}>
               <input
                 type="checkbox"
-                checked={selectItems.includes(item[itamValues.keyValue])}
+                checked={selectItems.includes(item)}
                 onClick={(event) => {
                   event.stopPropagation();
                   addingByCheckbox(item);
@@ -44,8 +46,9 @@ console.log(selectItems, "<===============");
         </ul>
         <button
           onClick={(event) => {
-            filterAllTables(selectItems, setCurrentCarArr);
+            filterAllTables(selectItems, setCurrentCarArr, carsData, filterRun);
             event.stopPropagation();
+            setFilterRun(true);
           }}
         >
           Отфильтровать

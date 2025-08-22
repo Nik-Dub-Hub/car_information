@@ -1,4 +1,4 @@
-import {getFileds} from "../../features/filterGetFileds/filterGetFileds";
+import { getHeadFileds } from "../../features/filterGetFileds/filterGetFileds";
 import CarListItem from "../../widgets/CarListItem/CarListItem";
 import { carsData } from "../../widgets/CarListItem/model/mocks/carsData";
 import { useEffect, useState } from "react";
@@ -14,9 +14,8 @@ export default function StockPage() {
   ];
 
   const [currentCarArr, setCurrentCarArr] = useState(carsData);
-
-
   const [filterFields, setFilterFields] = useState([]);
+  const [filterRun, setFilterRun] = useState(false)
   const [open, setOpen] = useState(
     tableHeaderValues.map((value) => ({ [value.keyValue]: false }))
   );
@@ -35,18 +34,19 @@ export default function StockPage() {
     );
   }
 
-  
+  function filterClin(){
+    setFilterRun(false);
+    setCurrentCarArr(carsData);
+  }
 
   useEffect(() => {
-    setFilterFields(getFileds(tableHeaderValues, currentCarArr));
+    setFilterFields(getHeadFileds(tableHeaderValues, carsData));
   }, [open]);
-
-
-
 
   return (
     <>
       <h1>Склад</h1>
+      {filterRun && <button onClick={filterClin}> Сбросить фильты </button>}
       <table>
         <thead>
           <tr>
@@ -64,7 +64,10 @@ export default function StockPage() {
                     indexHeaderValues={indexHeaderValues}
                     itamValues={itamValues}
                     openCloseModal={openCloseModal}
-                    setCurrentCarArr = {setCurrentCarArr}
+                    setCurrentCarArr={setCurrentCarArr}
+                    carsData={carsData}
+                    setFilterRun={setFilterRun}
+                    filterRun={filterRun}
                   />
                 )}
               </th>
